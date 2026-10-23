@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Shared storage between the app and its extensions (allowlist, settings).
+         Must be "group." + the bundleID in xtool.yml. -->
+    <key>com.apple.security.application-groups</key>
+    <array>
+        <string>group.com.szymonb.ukivi</string>
+    </array>
+</dict>
+</plist>

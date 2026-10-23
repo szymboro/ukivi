@@ -1,0 +1,46 @@
+diff --git a/Sources/XKit/DeveloperServices/App IDs/DeveloperServicesAddAppOperation.swift b/Sources/XKit/DeveloperServices/App IDs/DeveloperServicesAddAppOperation.swift
+index d726e91..8d344fd 100644
+--- a/Sources/XKit/DeveloperServices/App IDs/DeveloperServicesAddAppOperation.swift	
++++ b/Sources/XKit/DeveloperServices/App IDs/DeveloperServicesAddAppOperation.swift	
+@@ -244,18 +244,13 @@ public struct DeveloperServicesAddAppOperation: DeveloperServicesOperation {
+ 
+         let isFreeTeam = try await context.auth.team()?.isFree == true
+ 
+-        return try await withThrowingTaskGroup(
+-            of: (URL, ProvisioningInfo).self,
+-            returning: [URL: ProvisioningInfo].self
+-        ) { group in
+-            for app in apps {
+-                group.addTask {
+-                    let info = try await addApp(app, isFreeTeam: isFreeTeam)
+-                    return (app, info)
+-                }
+-            }
+-            return try await group.reduce(into: [:]) { $0[$1.0] = $1.1 }
++        // Patched for uKivi: one at a time, so the app and its extensions don't race
++        // to create the same app group (the first creates it, the rest reuse it).
++        var result: [URL: ProvisioningInfo] = [:]
++        for app in apps {
++            result[app] = try await addApp(app, isFreeTeam: isFreeTeam)
+         }
++        return result
+     }
+ 
+ }
+diff --git a/Sources/XKit/DeveloperServices/App IDs/Entitlements/DeveloperServicesCapability.swift b/Sources/XKit/DeveloperServices/App IDs/Entitlements/DeveloperServicesCapability.swift
+index 1d12254..bc56021 100644
+--- a/Sources/XKit/DeveloperServices/App IDs/Entitlements/DeveloperServicesCapability.swift	
++++ b/Sources/XKit/DeveloperServices/App IDs/Entitlements/DeveloperServicesCapability.swift	
+@@ -73,9 +73,9 @@ extension DataProtectionEntitlement: EntitlementWithCapability {
+ 
+ extension AppGroupEntitlement: EntitlementWithCapability {
+     var capability: DeveloperServicesCapability {
+-        // FIXME: Enable app groups on free accounts
+-        // but we need to always assign only one group
+-        DeveloperServicesCapability(.appGroups, isFree: false)
++        // Patched for uKivi: free accounts support app groups too.
++        // (Apps and extensions are registered one at a time, see DeveloperServicesAddAppOperation.)
++        DeveloperServicesCapability(.appGroups, isFree: true)
+     }
+ }
+ 

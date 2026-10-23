@@ -1,0 +1,36 @@
+version: 1
+# Change this to something unique to you. xtool adds your team ID in front when signing.
+bundleID: com.szymonb.ukivi
+product: uKivi
+infoPath: Support/uKivi-Info.plist
+iconPath: Support/AppIcon.png
+entitlementsPath: Support/uKivi.entitlements
+resources:
+  - Generated/metadata.json
+  - Support/KiviLogo.png
+  - Tools/filters.json
+
+extensions:
+  - product: uKiviAds
+    infoPath: Support/uKiviAds-Info.plist
+    entitlementsPath: Support/uKivi.entitlements
+    resources:
+      - Generated/ads.json
+
+  - product: uKiviPrivacy
+    infoPath: Support/uKiviPrivacy-Info.plist
+    entitlementsPath: Support/uKivi.entitlements
+    resources:
+      - Generated/privacy.json
+
+  - product: uKiviWebExtension
+    infoPath: Support/uKiviWebExtension-Info.plist
+    entitlementsPath: Support/uKivi.entitlements
+    resources:
+      - WebExtension/manifest.json
+      - WebExtension/background.js
+      - WebExtension/content.js
+      - WebExtension/popup.html
+      - WebExtension/popup.css
+      - WebExtension/popup.js
+      - WebExtension/images

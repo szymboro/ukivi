@@ -1,0 +1,53 @@
+{
+  "_comment": "Each group becomes one Safari content blocker. Safari allows 150,000 rules per blocker. Annoyance lists live in 'ads' because free Apple accounts only get 10 App IDs a week, so uKivi keeps its extension count low.",
+  "groups": {
+    "ads": [
+      {
+        "name": "EasyList",
+        "url": "https://easylist.to/easylist/easylist.txt"
+      },
+      {
+        "name": "uBlock filters",
+        "url": "https://ublockorigin.github.io/uAssets/filters/filters.txt"
+      },
+      {
+        "name": "uBlock filters – Unbreak",
+        "url": "https://ublockorigin.github.io/uAssets/filters/unbreak.txt"
+      },
+      {
+        "name": "Oficjalne Polskie Filtry",
+        "url": "https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/polish-adblock-filters/adblock.txt"
+      },
+      {
+        "name": "EasyList Polish",
+        "url": "https://easylist-downloads.adblockplus.org/easylistpolish.txt"
+      },
+      {
+        "name": "Fanboy's Annoyance List",
+        "url": "https://secure.fanboy.co.nz/fanboy-annoyance.txt"
+      },
+      {
+        "name": "uBlock filters – Cookie Notices",
+        "url": "https://ublockorigin.github.io/uAssets/filters/annoyances-cookies.txt"
+      },
+      {
+        "name": "uBlock filters – Other Annoyances",
+        "url": "https://ublockorigin.github.io/uAssets/filters/annoyances-others.txt"
+      }
+    ],
+    "privacy": [
+      {
+        "name": "EasyPrivacy",
+        "url": "https://easylist.to/easylist/easyprivacy.txt"
+      },
+      {
+        "name": "uBlock filters – Privacy",
+        "url": "https://ublockorigin.github.io/uAssets/filters/privacy.txt"
+      },
+      {
+        "name": "uBlock filters – Unbreak",
+        "url": "https://ublockorigin.github.io/uAssets/filters/unbreak.txt"
+      }
+    ]
+  }
+}

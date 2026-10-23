@@ -1,0 +1,20 @@
+# SwiftPM / xtool build output
+.build/
+xtool/
+*.ipa
+.sourcekit-lsp/
+buildServer.json
+
+# Downloaded filter lists
+Tools/.cache/
+__pycache__/
+
+# Converter output (regenerate with: python3 Tools/convert_filters.py)
+Generated/*.json
+
+# FilterKit (Linux builds/tests)
+Packages/FilterKit/.build/
+.bsp/
+
+# Release builds
+dist/

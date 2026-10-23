@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1c20"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </linearGradient>
+    <linearGradient id="kiwi" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#ff5a5f"/>
+      <stop offset="1" stop-color="#c3202c"/>
+    </linearGradient>
+  </defs>
+
+  <rect id="background" width="1024" height="1024" fill="url(#bg)"/>
+
+  <g transform="translate(5,-40)">
+  <g id="bird" fill="url(#kiwi)" stroke="url(#kiwi)" stroke-linecap="round" stroke-linejoin="round">
+    <!-- legs -->
+    <g fill="none" stroke-width="26">
+      <path d="M520 700 L505 815 M505 815 L455 845 M505 815 L520 860 M505 815 L555 840"/>
+      <path d="M650 690 L668 800 M668 800 L620 830 M668 800 L685 845 M668 800 L718 822"/>
+    </g>
+    <!-- beak -->
+    <path d="M300 455 Q210 560 150 735" fill="none" stroke-width="24"/>
+    <!-- body + head -->
+    <path stroke="none" d="
+      M 300 395
+      C 300 330 360 300 410 312
+      C 470 326 500 370 560 380
+      C 700 360 860 420 860 560
+      C 860 690 740 745 600 745
+      C 470 745 390 690 370 600
+      C 360 545 330 500 300 470
+      C 280 448 290 418 300 395 Z"/>
+  </g>
+  <!-- eye -->
+  <circle cx="352" cy="380" r="15" fill="#0f0f11"/>
+  </g>
+</svg>

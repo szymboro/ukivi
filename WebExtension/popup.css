@@ -1,0 +1,89 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0b0c;
+  --card: #17171a;
+  --border: rgba(255, 255, 255, .07);
+  --text: #f5f5f7;
+  --muted: rgba(255, 255, 255, .55);
+  --red: #ff4d55;
+  --red-deep: #c2212b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 18px 16px;
+  min-width: 300px;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px -apple-system, system-ui, sans-serif;
+  display: grid;
+  gap: 12px;
+}
+
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+header img { filter: drop-shadow(0 0 12px rgba(255, 77, 85, .35)); }
+h1 { font: 800 22px ui-rounded, -apple-system, system-ui, sans-serif; margin: 0; }
+#host { margin: 2px 0 0; color: var(--muted); font-size: 13px; word-break: break-all; }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.row[hidden] { display: none; }
+.toggle span { display: grid; gap: 3px; }
+small { color: var(--muted); font-size: 12px; }
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 51px;
+  height: 31px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .12);
+  position: relative;
+  flex: none;
+  transition: background .2s;
+}
+input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+  transition: transform .2s;
+}
+input[type="checkbox"]:checked { background: linear-gradient(135deg, var(--red), var(--red-deep)); }
+input[type="checkbox"]:checked::after { transform: translateX(20px); }
+input[type="checkbox"]:disabled { opacity: .5; }
+
+button {
+  font: inherit;
+  border: 0;
+  border-radius: 16px;
+  padding: 14px;
+  color: var(--text);
+  background: var(--card);
+}
+button.primary {
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(255, 77, 85, .3);
+}
+button.primary:disabled { opacity: .4; box-shadow: none; }
+button.link { background: none; color: var(--red); padding: 0; font-weight: 600; }
+
+#message { margin: 0; min-height: 1em; color: var(--muted); font-size: 13px; }
+

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="images/kivi.png" alt="" width="40" height="40">
+    <div>
+      <h1>uKivi</h1>
+      <p id="host">…</p>
+    </div>
+  </header>
+
+  <label class="row toggle">
+    <span>
+      <strong>Blocking on this site</strong>
+      <small id="pause-status">Ads and trackers are blocked</small>
+    </span>
+    <input type="checkbox" id="enabled" checked disabled>
+  </label>
+
+  <button id="pick" class="primary">Hide an element…</button>
+
+  <div class="row" id="hidden-row" hidden>
+    <span><span id="hidden-count">0</span> hidden on this site</span>
+    <button id="reset" class="link">Reset</button>
+  </div>
+
+  <p id="message" role="status"></p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
